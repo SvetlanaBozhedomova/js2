@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Фастфуд</title>
+</head>
+
+<body>
+  <script>
+
+    //размеры
+    const sizes = [
+      { name: 'small', price: 50, cal: 20 },
+      { name: 'big', price: 100, cal: 40 },
+    ];
+    //начинки
+    const stuffings = [
+      { name: 'cheese', price: 10, cal: 20 },
+      { name: 'salad', price: 20, cal: 5 },
+      { name: 'potato', price: 15, cal: 10 },
+    ];
+    //добавки
+    const toppings = [
+      { name: 'seasoning', price: 15, cal: 0 },
+      { name: 'mayonnaise', price: 20, cal: 5 },
+    ];
+
+    //класс гамбургер
+    class Hamburger {
+      constructor(size, stuffing, ...topping) {
+        this.size = size;           //размер
+        this.stuffing = stuffing;   //начинка
+        this.topping = topping;    //добавка ['seasoning','mayonnaise'] 
+        console.log(`Info: ${this.size} ${this.stuffing} ${this.topping}`);
+      }
+      //получить сумму значений по свойству
+      _getSum(property) {
+        console.log('getSum: ' + property);
+        let item = sizes.find(elem => this.size == elem.name);
+        console.log(item);
+        let sum = item[property];
+        item = stuffings.find(elem => this.stuffing == elem.name);
+        console.log(item);
+        sum = sum + item[property];
+        for (let i = 0; i < this.topping.length; i++) {
+          item = toppings.find(elem => this.topping[i] == elem.name);
+          console.log(item);
+          sum = sum + item[property];
+        }
+        return sum;
+      }
+      //посчитать стоимость гамбургера
+      calcPrice() {
+        return this._getSum('price');
+      }
+      //посчитать калорийность гамбургера
+      calcCalories() {
+        return this._getSum('cal');
+      }
+    }
+
+    let order1 = new Hamburger('small', 'salad');
+    console.log(order1.calcPrice());     //стоимость = 70
+    console.log(order1.calcCalories());  //калорийность = 25
+
+    let order2 = new Hamburger('big', 'potato', 'seasoning', 'mayonnaise');
+    console.log(order2.calcPrice());     //стоимость = 150
+    console.log(order2.calcCalories());  //калорийность = 55
+
+  </script>
+</body>
+
+</html>
