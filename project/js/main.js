@@ -1,23 +1,86 @@
-const products = [
-  { id: 1, title: 'Notebook', price: 2000 },
-  { id: 2, title: 'Mouse', price: 20 },
-  { id: 3, title: 'Keyboard', price: 200 },
-  { id: 4, title: 'Gamepad', price: 50 },
-];
-//Функция для формирования верстки каждого товара
-//Добавить в выводе изображение
-const renderProduct = (x) => {
-  return `<div class="product-item">
-                <img src="img/pict.jpg" alt="photo">
-                <h3>${x.title}</h3>
-                <p>${x.price}</p>
-                <button class="buy-btn">Купить</button>
-            </div>`
-};
-const renderPage = list => {
-  const productsList = list.map(item => renderProduct(item));
-  console.log(productsList);
-  document.querySelector('.products').innerHTML = productsList.join('');
-};
+const API = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses';
 
-renderPage(products);
+const app = new Vue({
+  el: '#app',
+  data: {
+    catalogUrl: '/catalogData.json',
+    products: [],
+    filtered: [],
+    imgCatalog: 'https://via.placeholder.com/200x150',
+    cartUrl: '/getBasket.json',
+    cartItems: [],
+    imgCart: 'https://via.placeholder.com/50x100',
+    userSearch: '',
+    show: false
+  },
+  methods: {
+    filter() {
+      const regexp = new RegExp(this.userSearch, 'i');
+      this.filtered = this.products.filter(product => regexp.test(product.product_name));
+    },
+    getJson(url) {
+      return fetch(url)
+        .then(result => result.json())
+        .catch(error => {
+          console.log(error);
+        })
+    },
+    addProduct(element) {
+      //console.log('addProduct: ' + element.id_product);
+      this.getJson(`${API}/addToBasket.json`)
+        .then(data => {
+          if (data.result === 1) {
+            let find = this.cartItems.find(
+              el => el.id_product === element.id_product);
+            if (find) {
+              find.quantity++;
+            } else {
+              let newElem = Object.assign({ quantity: 1 }, element);
+              this.cartItems.push(newElem);
+            }
+          } else {
+            alert('Error: result != 1');
+          }
+        })
+    },
+    removeProduct(element) {
+      //console.log('removeProduct: ' + element.id_product);
+      this.getJson(`${API}/deleteFromBasket.json`)
+        .then(data => {
+          if (data.result === 1) {
+            if (element.quantity > 1) {
+              element.quantity--;
+            } else {
+              this.cartItems.splice(this.cartItems.indexOf(element), 1);
+            }
+          } else {
+            alert('Error: result != 1');
+          }
+        })
+    }
+  },
+  mounted() {
+    this.getJson(`${API + this.cartUrl}`)
+      .then(data => {
+        //console.log(data.contents);
+        //console.log([...data.contents]);
+        for (let el of data.contents) {
+          this.cartItems.push(el);
+        };
+      });
+    this.getJson(`${API + this.catalogUrl}`)
+      .then(data => {
+        for (let el of data) {
+          this.products.push(el);
+          this.filtered.push(el);
+        }
+      });
+    this.getJson(`getProducts.json`)
+      .then(data => {
+        for (let el of data) {
+          this.products.push(el);
+          this.filtered.push(el);
+        }
+      });
+  }
+});
