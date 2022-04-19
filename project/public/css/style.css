@@ -480,6 +480,9 @@ body {
 .products-item:hover .products-item-btn {
   display: flex;
 }
+.products-item-btn:hover {
+  background-color: #F26376;
+}
 /* текст*/
 .products-item-text-wrp {
   padding: 25px 18px 20px 18px;
