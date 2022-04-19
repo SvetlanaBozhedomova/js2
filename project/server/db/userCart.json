@@ -1,0 +1,27 @@
+{
+    "amount": 144,
+    "countGoods": 3,
+    "contents": [
+        {
+            "quantity": 2,
+            "id_product": 1,
+            "product_name": "jacket blue",
+            "price": 52,
+            "img_product": "img/products/product1.png"
+        },
+        {
+            "quantity": 2,
+            "id_product": 5,
+            "product_name": "jacket aqua",
+            "price": 25,
+            "img_product": "img/products/product5.png"
+        },
+        {
+            "quantity": 1,
+            "id_product": 3,
+            "product_name": "cardigan",
+            "price": 26,
+            "img_product": "img/products/product3.png"
+        }
+    ]
+}

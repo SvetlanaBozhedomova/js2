@@ -1,0 +1,38 @@
+[
+  {
+    "id_product": 1,
+    "product_name": "jacket blue",
+    "price": 52,
+    "img_product": "img/products/product1.png"
+  },
+  {
+    "id_product": 2,
+    "product_name": "suit black",
+    "price": 40,
+    "img_product": "img/products/product2.png"
+  },
+  {
+    "id_product": 3,
+    "product_name": "cardigan",
+    "price": 26,
+    "img_product": "img/products/product3.png"
+  },
+  {
+    "id_product": 4,
+    "product_name": "trousers",
+    "price": 20,
+    "img_product": "img/products/product4.png"
+  },
+  {
+    "id_product": 5,
+    "product_name": "jacket aqua",
+    "price": 25,
+    "img_product": "img/products/product5.png"
+  },
+  {
+    "id_product": 6,
+    "product_name": "shirt",
+    "price": 12,
+    "img_product": "img/products/product6.png"
+  }
+]

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping cart</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <div id="app" class="container">
+
+    <!--   header   -->
+    <header class="page-header">
+      <div class="page-header-wrp content-center">
+        <!--   левая группа кнопок   -->
+        <div class="page-header-btn-group">
+          <!--  логотип  -->
+          <a href="index.html" class="page-header-logo">
+            <img src="img/logo.png" alt="logo" height="38">
+          </a>
+          <!--  поиск  -->
+          <!--<filter-el></filter-el>-->
+        </div>
+        <!--  правая группа кнопок   -->
+        <div class="page-header-btn-group">
+          <mainmenu-el></mainmenu-el> <!--   кнопка меню   -->
+          <account-el></account-el>   <!--  личный кабинет   -->
+          <!--  корзина с кнопкой и окошком  -->
+          <cart ref="cart"></cart>  
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!--   раздел с заголовком страницы   -->
+      <section class="page-caption mob-center">
+        <div class="page-caption-wrp content-center">
+          <h2 class="page-caption-title">shopping cart</h2>
+        </div>
+      </section>
+
+      <!--   раздел корзина   -->
+      <section class="content-center">
+        <form class="cart" action="#">
+          <div class="cart-products">
+            <div class="cart-product">
+              <img src="img/products/product3.png" alt="photo" height="306">
+              <div class="cart-product-info">
+                <h3 class="cart-product-info-title">mango people T-shirt</h3>
+                <p class="cart-product-info-price">Price: <span>&dollar;300</span></p>
+                <p class="cart-product-info-text">Color: Red</p>
+                <p class="cart-product-info-text">Size: XL</p>
+                <p class="cart-product-info-text">Quantity:
+                  <input class="input-field-quantity" type="text" placeholder="2">
+                </p>
+                <span class="cart-product-info-close">
+                  <svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M11.2453 9L17.5302 2.71516C17.8285 2.41741 17.9962 2.01336 17.9966 1.59191C17.997 1.17045 17.8299 0.76611 17.5322 0.467833C17.2344 0.169555 16.8304 0.00177586 16.4089 0.00140366C15.9875 0.00103146 15.5831 0.168097 15.2848 0.465848L9 6.75069L2.71516 0.465848C2.41688 0.167571 2.01233 0 1.5905 0C1.16868 0 0.764125 0.167571 0.465848 0.465848C0.167571 0.764125 0 1.16868 0 1.5905C0 2.01233 0.167571 2.41688 0.465848 2.71516L6.75069 9L0.465848 15.2848C0.167571 15.5831 0 15.9877 0 16.4095C0 16.8313 0.167571 17.2359 0.465848 17.5342C0.764125 17.8324 1.16868 18 1.5905 18C2.01233 18 2.41688 17.8324 2.71516 17.5342L9 11.2493L15.2848 17.5342C15.5831 17.8324 15.9877 18 16.4095 18C16.8313 18 17.2359 17.8324 17.5342 17.5342C17.8324 17.2359 18 16.8313 18 16.4095C18 15.9877 17.8324 15.5831 17.5342 15.2848L11.2453 9Z" />
+                  </svg>
+                </span>
+              </div>
+            </div>
+            <div class="cart-product">
+              <img src="img/products/product7.png" alt="photo" height="306">
+              <div class="cart-product-info">
+                <h3 class="cart-product-info-title">mango people T-shirt</h3>
+                <p class="cart-product-info-price">Price: <span>&dollar;300</span></p>
+                <p class="cart-product-info-text">Color: Red</p>
+                <p class="cart-product-info-text">Size: XL</p>
+                <p class="cart-product-info-text">Quantity:
+                  <input class="input-field-quantity" type="text" placeholder="2">
+                </p>
+                <span class="cart-product-info-close">
+                  <svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M11.2453 9L17.5302 2.71516C17.8285 2.41741 17.9962 2.01336 17.9966 1.59191C17.997 1.17045 17.8299 0.76611 17.5322 0.467833C17.2344 0.169555 16.8304 0.00177586 16.4089 0.00140366C15.9875 0.00103146 15.5831 0.168097 15.2848 0.465848L9 6.75069L2.71516 0.465848C2.41688 0.167571 2.01233 0 1.5905 0C1.16868 0 0.764125 0.167571 0.465848 0.465848C0.167571 0.764125 0 1.16868 0 1.5905C0 2.01233 0.167571 2.41688 0.465848 2.71516L6.75069 9L0.465848 15.2848C0.167571 15.5831 0 15.9877 0 16.4095C0 16.8313 0.167571 17.2359 0.465848 17.5342C0.764125 17.8324 1.16868 18 1.5905 18C2.01233 18 2.41688 17.8324 2.71516 17.5342L9 11.2493L15.2848 17.5342C15.5831 17.8324 15.9877 18 16.4095 18C16.8313 18 17.2359 17.8324 17.5342 17.5342C17.8324 17.2359 18 16.8313 18 16.4095C18 15.9877 17.8324 15.5831 17.5342 15.2848L11.2453 9Z" />
+                  </svg>
+                </span>
+              </div>
+            </div>
+         
+            <div class="cart-products-btn-wrp">
+              <button class="cart-products-btn">clear shopping cart</button>
+              <!--<button class="cart-products-btn">continue shopping</button>-->
+              <a class="cart-products-btn" href="catalog.html">continue shopping</a>
+            </div>
+          </div>
+          <div class="cart-info">
+            <fieldset class="cart-info-address">
+              <legend>shopping address</legend>
+              <input class="input-field" type="text" placeholder="Bangladesh">
+              <input class="input-field" type="text" placeholder="State">
+              <input class="input-field" type="text" placeholder="Postcode / Zip">
+              <button class="cart-address-btn">get a quote</button>
+            </fieldset>
+            <div class="cart-info-cost">
+              <p class="cart-cost-subtotal">sub total<span>&dollar;900</span></p>
+              <p class="cart-cost-total">grand total<span>&dollar;900</span></p>
+              <input class="cart-cost-btn" type="submit" value="proceed to checkout">
+            </div>
+          </div>
+        </form>
+      </section>
+
+      <!--  раздел subscribe  -->
+      <subscribe-el></subscribe-el>
+    </main>
+
+    <!--  footer  -->
+    <footer-el></footer-el>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="js/ProductComponent.js"></script>
+  <script src="js/CartComponent.js"></script>
+  <script src="js/FilterComp.js"></script>
+  <script src="js/MenuComp.js"></script>
+  <script src="js/AccountComp.js"></script>
+  <script src="js/FeatureComp.js"></script>
+  <script src="js/SubscribeComp.js"></script>
+  <script src="js/FooterComp.js"></script>
+  <script src="js/ErrorComp.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
