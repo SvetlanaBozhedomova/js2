@@ -13,4 +13,4 @@ Vue.component('filter-el', {
         </svg>
       </label>
     </form> `
-})
+});

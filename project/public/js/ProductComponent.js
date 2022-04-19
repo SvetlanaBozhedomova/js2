@@ -36,7 +36,7 @@ Vue.component('product', {
   props: ['product', 'img'],
   template: `
     <article class="products-item">
-      <a href="#">  
+      <a href="product.html">  
         <img class="products-item-photo" 
           :src="product.img_product" alt="photo">
         <div class="products-item-text-wrp">
@@ -44,15 +44,12 @@ Vue.component('product', {
           <p class="products-item-text">Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi.</p>
           <p class="products-item-price">&dollar;{{product.price}}</p>
         </div>
-      
+      </a>  
       <button class="products-item-btn"
         @click="$emit('add-product', product)">
         <img src="img/addcart.png" alt="cart">
         <span>Add to Cart</span>
       </button>
-      </a>
     </article> `
 });
-// a href="product.html"
 // src="img/products/product1.png" 
-// @click="$emit('add-product', product)">  

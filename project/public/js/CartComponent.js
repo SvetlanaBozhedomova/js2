@@ -80,9 +80,11 @@ Vue.component('cart', {
         <cart-item v-for="item of cartItems" :key="item.id_product"  :cart-item="item" @remove="remove">
         </cart-item>
         <p class="page-header-cart-text" v-if="cartItems.length">Total cost <span>&dollar;{{amount}}</span></p>
+        <a class="page-header-cart-text" v-if="cartItems.length" href="cart.html">Go to payment</a>
       </div>
     </div> `
 });
+//<a class="page-header-cart-text" v-if="cartItems.length" href="cart.html">Go to payment</a>
 
 Vue.component('cart-item', {
   props: ['img', 'cartItem'],
